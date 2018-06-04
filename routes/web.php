@@ -11,8 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HelloWorld@index');
 
-Route::get('/helloworld/', 'HelloWorld@index');
+//Route::get('/helloworld/', 'HelloWorld@index');
