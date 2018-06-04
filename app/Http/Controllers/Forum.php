@@ -8,7 +8,7 @@ class Forum extends Controller {
 
     public function index() {
 	    $content = array('title' => 'The Forum');
-	    return view('layout.forum', $content);
+	    return view('pages.homepage', $content);
     }
 
     public function login() {
