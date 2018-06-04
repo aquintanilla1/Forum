@@ -3,6 +3,6 @@
     @yield('title')
 </head>
 <body>
-    dnunfdunfdun
+   @yield('content')
 </body>
 </html>

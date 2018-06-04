@@ -8,6 +8,6 @@ class Forum extends Controller {
 
     public function index() {
 	    $content = array('title' => 'The Forum');
-	    return view('forum', $content);
+	    return view('layout.forum', $content);
     }
 }
