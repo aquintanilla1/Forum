@@ -11,11 +11,8 @@
 |
 */
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
-
-Route::get('/helloworld/{n1}/{n2}', function($n1,$n2) {
-
-    return $n1 + $n2;
+Route::get('/', function () {
+    return view('welcome');
 });
+
+Route::get('/helloworld/', 'HelloWorld@index');
