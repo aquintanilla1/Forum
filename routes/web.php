@@ -13,4 +13,6 @@
 
 Route::get('/', 'Forum@index');
 
+Route::get('/login', 'Forum@login');
+
 //Route::get('/helloworld/', 'Forum@index');

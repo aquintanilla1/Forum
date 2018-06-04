@@ -1,9 +1,9 @@
-@extends('layout.forum)
+@extends('layout.forum')
 
 @section('title')
-    <title>The Forum: Log In</title>
+    <title>{{ '$title' }}</title>
 @endsection
 
 @section('content')
-    <h1>Log In Here</h1>
+    <h1>{{ '$heading' }}</h1>
 @endsection
