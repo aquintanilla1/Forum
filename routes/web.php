@@ -11,6 +11,6 @@
 |
 */
 
-Route::get('/', 'HelloWorld@index');
+Route::get('/', 'Forum@index');
 
-//Route::get('/helloworld/', 'HelloWorld@index');
+//Route::get('/helloworld/', 'Forum@index');
