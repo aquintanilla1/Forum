@@ -16,4 +16,16 @@ class Forum extends Controller {
                          'heading' => 'Log In Here');
         return view('pages.login', $content);
     }
+
+    public function signin() {
+        $content = array('title' => 'The Forum: Sign In',
+            'heading' => 'Sign In Here');
+        return view('pages.signin', $content);
+    }
+
+    public function changePassword() {
+        $content = array('title' => 'The Forum: Change Password',
+            'heading' => 'Change Password');
+        return view('pages.changePassword', $content);
+    }
 }

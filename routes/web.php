@@ -15,4 +15,7 @@ Route::get('/', 'Forum@index');
 
 Route::get('/login', 'Forum@login');
 
-//Route::get('/helloworld/', 'Forum@index');
+Route::get('/signin', 'Forum@signin');
+
+Route::get('/changePassword', 'Forum@changePassword');
+
