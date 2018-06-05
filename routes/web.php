@@ -11,11 +11,11 @@
 |
 */
 
-Route::get('/', 'Forum@index');
+Route::get('/', 'PagesController@index');
 
-Route::get('/login', 'Forum@login');
+Route::get('/login', 'PagesController@login');
 
-Route::get('/signin', 'Forum@signin');
+Route::get('/signup', 'PagesController@signup');
 
-Route::get('/changePassword', 'Forum@changePassword');
+Route::get('/changePassword', 'PagesController@changePassword');
 
