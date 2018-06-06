@@ -11,9 +11,13 @@ class TopicsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
+    public function index() {
+        $content = array(
+            'title' => $this->title,
+            'heading' => 'Topic List',
+            'topics' => Topic::all()
+        );
+        return view('topics.index', $content);
     }
 
     /**
