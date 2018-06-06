@@ -19,3 +19,5 @@ Route::get('/signup', 'PagesController@signup');
 
 Route::get('/changePassword', 'PagesController@changePassword');
 
+Route::resource('topics', 'TopicsController');
+
