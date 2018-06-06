@@ -5,6 +5,6 @@
 @endsection
 
 @section('content')
-    <h1>{{ $title }}</h1>
+    <h1><a href="/">{{ $title }}</a></h1>
     <h2>{{ $heading }}</h2>
 @endsection
