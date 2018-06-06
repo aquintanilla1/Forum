@@ -5,7 +5,6 @@
 @endsection
 
 @section('content')
-    <h1>{{ $title }}</h1>
     <h2>Welcome to {{ $title }}</h2>
 
     <p><a href="/login">Log In</a></p>

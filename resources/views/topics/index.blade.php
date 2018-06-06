@@ -5,7 +5,6 @@
 @endsection
 
 @section('content')
-    <h1>{{ $title }}</h1>
     <h2>Welcome to {{ $title }}</h2>
 
     <p><a href="/login">Log In</a></p>
@@ -15,7 +14,8 @@
 
     @if(count($topics) >= 1)
         @foreach($topics as $topic)
-            <p>{{$topic->topicTitle}}</p>
+            <h3><a href="/posts/{{$topic->id}}">{{$topic->topicTitle}}</a></h3>
+            <small>Posted on {{ $topic->created_at }}</small>
         @endforeach
     @else
         <p>No topics found</p>

@@ -48,9 +48,13 @@ class TopicsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
+    public function show($id) {
+        $content = array(
+            'title' => $this->title,
+            'topic' => Topic::find($id)
+        );
+
+        return view('topics.show', $content);
     }
 
     /**
