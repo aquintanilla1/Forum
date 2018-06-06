@@ -7,7 +7,7 @@ use App\Topic;
 
 class TopicsController extends Controller
 {
-    /**
+    /** Will be Homepage for the application
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response

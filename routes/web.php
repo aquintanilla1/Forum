@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'PagesController@index');
+Route::get('/', 'TopicsController@index');
 
 Route::get('/login', 'PagesController@login');
 
