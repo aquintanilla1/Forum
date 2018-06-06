@@ -14,7 +14,7 @@
 
     @if(count($topics) >= 1)
         @foreach($topics as $topic)
-            <h3><a href="/posts/{{$topic->id}}">{{$topic->topicTitle}}</a></h3>
+            <h3><a href="/topics/{{$topic->id}}">{{$topic->topicTitle}}</a></h3>
             <small>Posted on {{ $topic->created_at }}</small>
         @endforeach
     @else
