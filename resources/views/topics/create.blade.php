@@ -5,16 +5,16 @@
 @endsection
 
 @section('content')
-    <h2>Create a Topic</h2>
+    <h2>{{ $heading }}</h2>
 
-    {!! Form::open(['action' => 'TopicsController@store', 'method' => 'POST']) !!}
-
-
-    {{Form::label('title', 'Title')}}
-    {{Form::text('topicTitle', 'Enter Title Here')}}
-    {{Form::label('titleLength', 'max 255 char.')}}
+    {{--{!! Form::open(['action' => 'TopicsController@store', 'method' => 'POST']) !!}--}}
 
 
-    {!! Form::close() !!}
+    {{--{{Form::label('title', 'Title')}}--}}
+    {{--{{Form::text('topicTitle', 'Enter Title Here')}}--}}
+    {{--{{Form::label('titleLength', 'max 255 char.')}}--}}
+
+
+    {{--{!! Form::close() !!}--}}
 
 @endsection

@@ -26,9 +26,12 @@ class TopicsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
+    public function create() {
+        $content = array(
+            'title' => $this->title,
+            'heading' => 'Create a Topic',
+        );
+        return view('topics.create', $content);
     }
 
     /**
