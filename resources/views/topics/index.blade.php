@@ -17,7 +17,6 @@
             <h3><a href="/topics/{{$topic->id}}">{{$topic->topicTitle}}</a></h3>
             <small>Posted on {{ $topic->created_at }}</small>
         @endforeach
-        {{$topics->links()}}
     @else
         <p>No topics found</p>
     @endif
