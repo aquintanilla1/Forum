@@ -16,7 +16,7 @@ class TopicsController extends Controller
         $content = array(
             'title' => $this->title,
             'heading' => 'Topic List',
-            'topics' => (Topic::orderBy('topicTitle', 'desc')->paginate(1))
+            'topics' => Topic::paginate(5)
         );
         return view('topics.index', $content);
     }
