@@ -9,6 +9,7 @@
 
     <p><a href="/login">Log In</a></p>
     <p><a href="/signup">Sign In</a></p>
+    <p><a href="/create">Create a Topic</a></p>
 
     <h2>{{ $heading }}</h2>
 
