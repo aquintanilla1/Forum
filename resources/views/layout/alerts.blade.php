@@ -1,0 +1,13 @@
+@if(count($errors) > 0)
+    @foreach($errors as $error)
+        {{$error}}
+    @endforeach
+@endif
+
+@if(session('success'))
+    {{session('success')}}
+@endif
+
+@if(session('error'))
+    {{session('error')}}
+@endif

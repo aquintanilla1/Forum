@@ -42,7 +42,17 @@ class TopicsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'topicTitle' => 'required',
+            'topicBody' => 'required'
+        ]);
+
+        $topic = new Topic;
+        $topic->topicTitle = $request->input('topicTitle');
+        $topic->topicBody = $request->input('topicBody');
+
+        return redirect('/')->with('success', 'Topic Created!');
+
     }
 
     /**
