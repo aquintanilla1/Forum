@@ -10,5 +10,5 @@
 
     <p>{{ $topic->topicBody }}</p>
 
-    <p><a href="/topics/{{$topic->id}}/edit"></a></p>
+    <p><a href="/topics/{{$topic->id}}/edit">Edit Topic</a></p>
 @endsection
