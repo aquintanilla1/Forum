@@ -10,12 +10,12 @@
     {!! Form::open(['action' => 'TopicsController@store', 'method' => 'POST']) !!}
 
     <p> {{Form::label('topicTitle', 'Title')}}
-        {{Form::text('topicTitle', 'Enter Title')}}
+        {{Form::text('topicTitle', '')}}
         {{Form::label('titleLength', 'max 255 char.')}}
     </p>
     <p>
     {{Form::label('topicBody', 'Body')}}
-    {{Form::textarea('topicBody', 'Enter Body')}}
+    {{Form::textarea('topicBody', '')}}
     {{Form::label('bodyLength', 'max 1000 char.')}}
     </p>
 

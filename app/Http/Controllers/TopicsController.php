@@ -28,7 +28,7 @@ class TopicsController extends Controller
      */
     public function create() {
         $content = array(
-            'title' => $this->title,
+            'title' => 'The Forum: Create a Topic',
             'heading' => 'Create a Topic',
         );
         return view('topics.create', $content);
@@ -43,8 +43,8 @@ class TopicsController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'topicTitle' => 'required',
-            'topicBody' => 'required'
+            'topicTitle' => 'required|max:255',
+            'topicBody' => 'required|max:1000'
         ]);
 
         $topic = new Topic;
@@ -78,9 +78,15 @@ class TopicsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        //
+    public function edit($id) {
+
+        $content = array(
+            'title' => $this->title,
+            $topic = Topic::find($id)
+        );
+
+        return view('topics.edit', $content);
+
     }
 
     /**
@@ -90,9 +96,20 @@ class TopicsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        //
+    public function update(Request $request, $id) {
+        $this->validate($request, [
+            'topicTitle' => 'required|max:255',
+            'topicBody' => 'required|max:1000'
+        ]);
+
+        $topic = Topic::find($id);
+        $topic->topicTitle = $request->input('topicTitle');
+        $topic->topicBody = $request->input('topicBody');
+
+        $topic->save();
+
+        return redirect('/')->with('success', 'Topic Edited!');
+
     }
 
     /**

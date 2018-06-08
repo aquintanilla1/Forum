@@ -9,4 +9,6 @@
     <h3>Posted on {{$topic->created_at}}</h3>
 
     <p>{{ $topic->topicBody }}</p>
+
+    <p><a href="/topics/{{$topic->id}}/edit"></a></p>
 @endsection
