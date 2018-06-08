@@ -51,6 +51,8 @@ class TopicsController extends Controller
         $topic->topicTitle = $request->input('topicTitle');
         $topic->topicBody = $request->input('topicBody');
 
+        $topic->save();
+
         return redirect('/')->with('success', 'Topic Created!');
 
     }
