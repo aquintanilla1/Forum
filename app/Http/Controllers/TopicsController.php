@@ -28,7 +28,7 @@ class TopicsController extends Controller
      */
     public function create() {
         $content = array(
-            'title' => 'The Forum: Create a Topic',
+            'title' => $this->title,
             'heading' => 'Create a Topic',
         );
         return view('topics.create', $content);
