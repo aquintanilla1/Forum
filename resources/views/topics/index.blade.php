@@ -7,9 +7,22 @@
 @section('content')
     <h2>Welcome to {{ $title }}</h2>
 
-    <p><a href="/login">Log In</a></p>
-    <p><a href="/register">Register</a></p>
-    <p><a href="/topics/create">Create a Topic</a></p>
+    @guest
+    <li><a href="{{ route('login') }}">{{ __('Login') }}</a></li>
+    <li><a href="{{ route('register') }}">{{ __('Register') }}</a></li>
+    @else
+        <li>
+            <a href="{{ route('logout') }}">{{ __('Logout') }}</a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
+        </li>
+        <li><a href="/topics/create">Create a Topic</a></li>
+
+        @endguest
+
+    {{--<p><a href="/login">Log In</a></p>--}}
+    {{--<p><a href="/register">Register</a></p>--}}
 
     <h2>{{ $heading }}</h2>
 
