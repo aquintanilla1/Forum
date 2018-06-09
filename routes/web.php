@@ -21,3 +21,7 @@ Route::get('/changePassword', 'PagesController@changePassword');
 
 Route::resource('topics', 'TopicsController');
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
