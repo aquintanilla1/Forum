@@ -18,8 +18,7 @@
             </form>
         </li>
         <li><a href="/topics/create">Create a Topic</a></li>
-
-        @endguest
+    @endguest
 
     {{--<p><a href="/login">Log In</a></p>--}}
     {{--<p><a href="/register">Register</a></p>--}}
