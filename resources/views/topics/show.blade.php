@@ -12,7 +12,7 @@
 
     <p><a href="/topics/{{$topic->id}}/edit">Edit Topic</a></p>
 
-    {!! Form::open(['action' => ['TopicsController@destroy', $topic->id], 'method' => 'POST']) !!}}
+    {!! Form::open(['action' => ['TopicsController@destroy', $topic->id], 'method' => 'POST']) !!}
 
     {{Form::hidden('_method', 'DELETE')}}
 
