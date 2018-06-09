@@ -1,4 +1,8 @@
-@extends('layouts.app')
+@extends('layout.forum')
+
+@section('title')
+    <title>The Forum: Register</title>
+@endsection
 
 @section('content')
 <div class="container">

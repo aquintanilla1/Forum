@@ -2,7 +2,6 @@
 
 @section('title')
     <title>The Forum: Log In</title>
-
 @endsection
 @section('content')
 <div class="container">

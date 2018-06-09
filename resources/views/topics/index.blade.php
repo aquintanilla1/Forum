@@ -8,7 +8,7 @@
     <h2>Welcome to {{ $title }}</h2>
 
     <p><a href="/login">Log In</a></p>
-    <p><a href="/signup">Sign In</a></p>
+    <p><a href="/register">Register</a></p>
     <p><a href="/topics/create">Create a Topic</a></p>
 
     <h2>{{ $heading }}</h2>
