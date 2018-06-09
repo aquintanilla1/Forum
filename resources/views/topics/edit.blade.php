@@ -16,7 +16,7 @@
     </p>
     <p>
         {{Form::label('topicBody', 'Body')}}
-        {{Form::textarea('topicBody', $topic->topicBody}}
+        {{Form::textarea('topicBody', $topic->topicBody)}}
         {{Form::label('bodyLength', 'max 1000 char.')}}
     </p>
     {{Form::hidden('_method', 'PUT')}}
