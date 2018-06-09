@@ -1,7 +1,7 @@
 @extends('layout.forum')
 
 @section('title')
-    <title>Editing: {{ $topic->topicTitle }}:</title>
+    <title>Editing: {{ $topic->topicTitle }}</title>
 @endsection
 
 @section('content')

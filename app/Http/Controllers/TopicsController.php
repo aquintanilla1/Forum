@@ -82,7 +82,7 @@ class TopicsController extends Controller
 
         $content = array(
             'title' => $this->title,
-            $topic = Topic::find($id)
+            'topic' => Topic::find($id)
         );
 
         return view('topics.edit', $content);
