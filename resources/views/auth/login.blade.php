@@ -1,7 +1,7 @@
 @extends('layout.forum')
 
 @section('title')
-    <title>{{$title}}: Log In</title>
+    <title>The Forum: Log In</title>
 
 @endsection
 @section('content')
