@@ -1,4 +1,8 @@
-@extends('layouts.app')
+@extends('layout.forum')
+
+@section('title')
+    <title>Email Password Reset</title>
+@endsection
 
 @section('content')
 <div class="container">
