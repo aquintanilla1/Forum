@@ -50,6 +50,7 @@ class TopicsController extends Controller
         $topic = new Topic;
         $topic->topicTitle = $request->input('topicTitle');
         $topic->topicBody = $request->input('topicBody');
+        $topic->user_id = auth()->user()->id;
 
         $topic->save();
 
