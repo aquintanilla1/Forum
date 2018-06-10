@@ -1,7 +1,7 @@
 @extends('layout.forum')
 
 @section('title')
-    <title>Email Password Reset</title>
+    <title>Password Reset</title>
 @endsection
 
 @section('content')
