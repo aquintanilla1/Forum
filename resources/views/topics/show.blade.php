@@ -10,12 +10,16 @@
 
     <p>{{ $topic->topicBody }}</p>
 
-    <p><a href="/topics/{{$topic->id}}/edit">Edit Topic</a></p>
+    @if(Auth::User()->id == $topic->user_id)
 
-    {!! Form::open(['action' => ['TopicsController@destroy', $topic->id], 'method' => 'POST']) !!}
+        <p><a href="/topics/{{$topic->id}}/edit">Edit Topic</a></p>
 
-    {{Form::hidden('_method', 'DELETE')}}
+        {!! Form::open(['action' => ['TopicsController@destroy', $topic->id], 'method' => 'POST']) !!}
 
-    {{Form::submit('Delete Topic')}}
+        {{Form::hidden('_method', 'DELETE')}}
+
+        {{Form::submit('Delete Topic')}}
+        {!! Form::close() !!}
+    @endif
 
 @endsection
