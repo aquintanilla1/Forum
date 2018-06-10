@@ -5,12 +5,13 @@
 @endsection
 
 @section('content')
+    @guest
     <h2>Welcome to {{ $title }}</h2>
 
-    @guest
     <li><a href="{{ route('login') }}">{{ __('Login') }}</a></li>
     <li><a href="{{ route('register') }}">{{ __('Register') }}</a></li>
     @else
+        <h2>Welcome, {{Auth::user()->name}}</h2>
         <li>
             <a href="{{ route('logout') }}">{{ __('Logout') }}</a>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
