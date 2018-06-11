@@ -10,16 +10,19 @@
 
     <p>{{ $topic->topicBody }}</p>
 
-    @if(Auth::User()->id == $topic->user_id)
+    @guest
+    @else
+        @if(Auth::User()->id == $topic->user_id)
 
-        <p><a href="/topics/{{$topic->id}}/edit">Edit Topic</a></p>
+            <p><a href="/topics/{{$topic->id}}/edit">Edit Topic</a></p>
 
-        {!! Form::open(['action' => ['TopicsController@destroy', $topic->id], 'method' => 'POST']) !!}
+            {!! Form::open(['action' => ['TopicsController@destroy', $topic->id], 'method' => 'POST']) !!}
 
-        {{Form::hidden('_method', 'DELETE')}}
+            {{Form::hidden('_method', 'DELETE')}}
 
-        {{Form::submit('Delete Topic')}}
-        {!! Form::close() !!}
-    @endif
+            {{Form::submit('Delete Topic')}}
+            {!! Form::close() !!}
+        @endif
+    @endguest
 
 @endsection
