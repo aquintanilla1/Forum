@@ -21,6 +21,10 @@ Route::get('/changePassword', 'PagesController@changePassword');
 
 Route::resource('topics', 'TopicsController');
 
+Route::resource('comments'. 'CommentsController')->only([
+    'store', 'update', 'delete'
+]);
+
 
 Auth::routes();
 
