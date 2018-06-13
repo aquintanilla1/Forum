@@ -11,9 +11,10 @@ class RenameCommentColumn extends Migration
      *
      * @return void
      */
-    public function up()
-    {
-        //
+    public function up(){
+        Schema::table('comments', function(Blueprint $table) {
+            $table->renameColumn('comment', 'commentBody');
+        });
     }
 
     /**
@@ -21,8 +22,9 @@ class RenameCommentColumn extends Migration
      *
      * @return void
      */
-    public function down()
-    {
-        //
+    public function down() {
+        Schema::table('comments', function(Blueprint $table) {
+            $table->renameColumn('commentBody', 'comment');
+        });
     }
 }

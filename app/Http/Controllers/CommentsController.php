@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Comment;
 
 class CommentsController extends Controller
 {
@@ -11,8 +12,7 @@ class CommentsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+    public function index() {
         //
     }
 
@@ -32,9 +32,18 @@ class CommentsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
+    public function store(Request $request, $topicID) {
+        $this->validate($request, [
+            'comment' => 'required:max:1000'
+        ]);
+
+        $comment = new Comment;
+        $comment->commentBody = $request->input('commentBody');
+        $comment->user_id = auth()->user->id;
+        $comment->topic_id = $topicID;
+
+        $comment->save();
+        return redirect('/topics/' . $topicID);
     }
 
     /**

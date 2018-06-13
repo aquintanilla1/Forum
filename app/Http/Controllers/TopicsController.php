@@ -65,9 +65,12 @@ class TopicsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id) {
+        $comments = DB::table('comments')->where('topic_id', '=', $id)->get();
+
         $content = array(
             'title' => $this->title,
-            'topic' => Topic::find($id)
+            'topic' => Topic::find($id),
+            'comments' => $comments
         );
 
         return view('topics.show', $content);
