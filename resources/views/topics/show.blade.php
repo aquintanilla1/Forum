@@ -28,7 +28,7 @@
     <h3>{{ count($topic->comments)}} replies</h3>
     @guest
     @else
-        {!! Form::open(['action' => 'CommentsController', 'method' => 'POST']) !!}
+        {!! Form::open(['action' => 'CommentsController@store', 'method' => 'POST']) !!}
         <p> {{Form::label('commentBody', 'Post a Comment')}}
             {{Form::text('commentBody', '')}}
             {{Form::label('commentLength', 'max 255 char.')}}
