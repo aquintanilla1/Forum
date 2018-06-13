@@ -34,7 +34,7 @@ class CommentsController extends Controller
      */
     public function store(Request $request) {
         $this->validate($request, [
-            'comment' => 'required:max:255'
+            'commentBody' => 'required:max:255'
         ]);
 
         $topic_id = Input::get('topic_id');
