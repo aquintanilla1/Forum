@@ -32,18 +32,20 @@ class CommentsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, $topicID) {
+    public function store(Request $request) {
         $this->validate($request, [
-            'comment' => 'required:max:1000'
+            'comment' => 'required:max:255'
         ]);
+
+        $topic_id = Input::get('topic_id');
 
         $comment = new Comment;
         $comment->commentBody = $request->input('commentBody');
         $comment->user_id = auth()->user->id;
-        $comment->topic_id = $topicID;
+        $comment->topic_id = $topic_id ;
 
         $comment->save();
-        return redirect('/topics/' . $topicID);
+        return redirect('/topics/' . $topic_id);
     }
 
     /**
