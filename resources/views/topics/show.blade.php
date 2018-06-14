@@ -6,7 +6,7 @@
 
 @section('content')
     <h2>{{ $topic->topicTitle }}</h2>
-    <h3>Posted on {{$topic->created_at}} by {{ $topic->users['name'] }}</h3>
+    <h3>Posted on {{$topic->created_at}} by {{ $topic->user['name'] }}</h3>
 
     <p>{{ $topic->topicBody }}</p>
 
@@ -42,7 +42,7 @@
     @if(count($topic->comments) >= 1)
         @foreach($topic->comments as $comment)
             <p>{{$comment->commentBody}}</p>
-            <small>Posted on {{ $comment->created_at }} by {{ $comment->users['name'] }}</small><br>
+            <small>Posted on {{ $comment->created_at }} by {{ $comment->user['name'] }}</small><br>
         @endforeach
     @else
         <p>No replies posted</p>

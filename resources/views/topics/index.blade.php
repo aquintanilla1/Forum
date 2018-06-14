@@ -26,7 +26,7 @@
     @if(count($topics) >= 1)
         @foreach($topics as $topic)
             <h3><a href="/topics/{{$topic->id}}">{{$topic->topicTitle}}</a></h3>
-            <small>Posted on {{ $topic->created_at }} by {{ $topic->users['name'] }}</small><br>
+            <small>Posted on {{ $topic->created_at }} by {{ $topic->user['name'] }}</small><br>
             <small>{{ $topic->comments_count }} comments</small>
         @endforeach
         {{ $topics->links() }}

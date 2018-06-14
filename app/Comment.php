@@ -5,11 +5,11 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 class Comment extends Model {
-    public function users() {
+    public function user() {
         return $this->belongsTo('App\User');
     }
 
-    public function topics() {
+    public function topic() {
         return $this->belongsTo('App\Topic');
     }
 }
