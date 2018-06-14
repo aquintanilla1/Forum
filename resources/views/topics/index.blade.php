@@ -21,16 +21,13 @@
         <li><a href="/topics/create">Create a Topic</a></li>
     @endguest
 
-    {{--<p><a href="/login">Log In</a></p>--}}
-    {{--<p><a href="/register">Register</a></p>--}}
-
     <h2>{{ $heading }}</h2>
 
     @if(count($topics) >= 1)
         @foreach($topics as $topic)
             <h3><a href="/topics/{{$topic->id}}">{{$topic->topicTitle}}</a></h3>
             <small>Posted on {{ $topic->created_at }} by {{ $topic->user['name'] }}</small><br>
-            <small>{{ count($topic->comments) }} comments</small>
+            <small>{{ $topic->comments_count }} comments</small>
         @endforeach
         {{ $topics->links() }}
     @else

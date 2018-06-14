@@ -36,16 +36,16 @@
             {{Form::submit('Submit Comment')}}
 
         </p>
-        {!! Form::close() !!}}
+        {!! Form::close() !!}
     @endguest
 
-        @if(count($topic->comments) >= 1)
-            @foreach($topic->comments as $comment)
-                <p>{{$comment->commentBody}}</p>
-                <small>Posted on {{ $comment->created_at }} by {{ $comment->user['name'] }}</small><br>
-            @endforeach
-        @else
-            <p>No replies posted</p>
-        @endif
+    @if(count($topic->comments) >= 1)
+        @foreach($topic->comments as $comment)
+            <p>{{$comment->commentBody}}</p>
+            <small>Posted on {{ $comment->created_at }} by {{ $comment->user['name'] }}</small><br>
+        @endforeach
+    @else
+        <p>No replies posted</p>
+    @endif
 
 @endsection
