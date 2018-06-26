@@ -12,4 +12,8 @@ class Comment extends Model {
     public function topic() {
         return $this->belongsTo('App\Topic');
     }
+
+    public function vote() {
+        return $this->hasMany('App\Votes');
+    }
 }
