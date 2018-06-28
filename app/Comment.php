@@ -14,6 +14,6 @@ class Comment extends Model {
     }
 
     public function votes() {
-        return $this->hasMany('App\Votes');
+        return $this->hasMany('App\Vote');
     }
 }
