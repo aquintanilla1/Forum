@@ -37,32 +37,37 @@ class VotesController extends Controller
     public function store(Request $request) {
         $vote = Input::get('vote');
         $comment_id = Input::get('comment_id');
+        $user_id = auth()->user()->id;
         $topic_id = Input::get('topic_id');
 
         $voteExists = DB::table('votes')
-            ->where('vote', $vote)
+            ->where('user_id', $user_id)
             ->where('comment_id', $comment_id)
             ->exists();
 
-        if ($voteExists) {
+        if ($voteExists) { //User already voted on this comment -> Edit vote
             $vote_id = DB::table('votes')
-                ->where('vote', $vote)
+                ->where('user_id', $user_id)
                 ->where('comment_id', $comment_id)
                 ->value('id');
 
             $voteEntry = Vote::find($vote_id);
 
-            $voteEntry->vote = $vote;
-            $voteEntry->save();
+            if ($voteEntry->vote == $vote) {
+                $voteEntry->vote = 0;
+            }
+            else {
+                $voteEntry->vote = $vote;
+            }
         }
-        else {
+        else { //User is voting on this comment for the first time -> New vote
             $voteEntry = new Vote;
             $voteEntry->vote = $vote;
-            $voteEntry->user_id = auth()->user()->id;
-
-            $voteEntry->save();
+            $voteEntry->user_id = $user_id;
+            $voteEntry->comment_id = $comment_id;
         }
 
+        $voteEntry->save();
         return redirect('/topics/' . $topic_id);
     }
 

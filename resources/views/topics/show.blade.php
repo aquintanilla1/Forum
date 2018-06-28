@@ -43,21 +43,27 @@
         @foreach($topic->comments as $comment)
             <p>{{$comment->commentBody}}</p>
             <small>Posted on {{ $comment->created_at }} by {{ $comment->user['name'] }}</small><br>
+            <p>{{$comment->votes->sum('vote')}} points</p>
             @if(!Auth::guest() and Auth::User()->id != $comment->user_id)
-                <p>{!! Form::open(['action' => 'VotesController@store', 'method' => 'POST']) !!}
-                    {{Form::hidden('vote', 1)}}
-                    {{Form::hidden('comment_id', $comment->id)}}
-                    {{Form::hidden('topic_id', $topic->id)}}
-                    {{Form::submit('Up')}}
-                    {!! Form::close() !!}
+                <table>
+                    <tr>
+                        <td>{!! Form::open(['action' => 'VotesController@store', 'method' => 'POST']) !!}
+                            {{Form::hidden('vote', 1)}}
+                            {{Form::hidden('comment_id', $comment->id)}}
+                            {{Form::hidden('topic_id', $topic->id)}}
+                            {{Form::submit('Up')}}
+                            {!! Form::close() !!}
+                        </td>
 
-                    {!! Form::open(['action' => 'VotesController@store', 'method' => 'POST']) !!}
-                    {{Form::hidden('vote', -1)}}
-                    {{Form::hidden('comment_id', $comment->id)}}
-                    {{Form::hidden('topic_id', $topic->id)}}
-                    {{Form::submit('Down')}}
-                    {!! Form::close() !!}
-                </p>
+                    <td>{!! Form::open(['action' => 'VotesController@store', 'method' => 'POST']) !!}
+                        {{Form::hidden('vote', -1)}}
+                        {{Form::hidden('comment_id', $comment->id)}}
+                        {{Form::hidden('topic_id', $topic->id)}}
+                        {{Form::submit('Down')}}
+                        {!! Form::close() !!}
+                    </td>
+                    </tr>
+                </table>
             @endif
         @endforeach
     @else
