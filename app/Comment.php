@@ -13,7 +13,7 @@ class Comment extends Model {
         return $this->belongsTo('App\Topic');
     }
 
-    public function vote() {
+    public function votes() {
         return $this->hasMany('App\Votes');
     }
 }
