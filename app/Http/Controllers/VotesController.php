@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use App\Vote;
 
 class VotesController extends Controller
 {
@@ -27,14 +29,41 @@ class VotesController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Stores or alters a vote
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
+    public function store(Request $request) {
+        $vote = Input::get('vote');
+        $comment_id = Input::get('comment_id');
+        $topic_id = Input::get('topic_id');
+
+        $voteExists = DB::table('votes')
+            ->where('vote', $vote)
+            ->where('comment_id', $comment_id)
+            ->exists();
+
+        if ($voteExists) {
+            $vote_id = DB::table('votes')
+                ->where('vote', $vote)
+                ->where('comment_id', $comment_id)
+                ->value('id');
+
+            $voteEntry = Vote::find($vote_id);
+
+            $voteEntry->vote = $vote;
+            $voteEntry->save();
+        }
+        else {
+            $voteEntry = new Vote;
+            $voteEntry->vote = $vote;
+            $voteEntry->user_id = auth()->user()->id;
+
+            $voteEntry->save();
+        }
+
+        return redirect('/topics/' . $topic_id);
     }
 
     /**

@@ -25,6 +25,10 @@ Route::resource('comments', 'CommentsController')->only([
     'store', 'update', 'destroy'
 ]);
 
+Route::resource('votes', 'VotesController')->only([
+    'store'
+]);
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
