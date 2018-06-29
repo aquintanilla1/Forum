@@ -7,6 +7,16 @@ use App\Topic;
 
 class TopicsController extends Controller
 {
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct() {
+        $this->middleware('auth', ['except' => 'index', 'show']);
+    }
+
     /** Will be Homepage for the application
      * Display a listing of the resource.
      *
@@ -81,10 +91,16 @@ class TopicsController extends Controller
      */
     public function edit($id) {
 
+        $topic = Topic::find($id);
+
         $content = array(
             'title' => $this->title,
-            'topic' => Topic::find($id)
+            'topic' => $topic
         );
+
+        if (auth()->user()->id != $topic->user_id) {
+            return redirect('topics/' . $id, $content)->with('error' , 'Unauthorized Page');
+        }
 
         return view('topics.edit', $content);
 
@@ -109,7 +125,12 @@ class TopicsController extends Controller
 
         $topic->save();
 
-        return redirect('/')->with('success', 'Topic Edited!');
+        $content = array(
+            'title' => $this->title,
+            'topic' => $topic
+        );
+
+        return redirect('/topics' . $id, $content)->with('success', 'Topic Edited!');
 
     }
 
@@ -121,6 +142,14 @@ class TopicsController extends Controller
      */
     public function destroy($id) {
         $topic = Topic::find($id);
+
+        if (auth()->user()->id != $topic->user_id) {
+            $content = array(
+                'title' => $this->title,
+                'topic' => $topic
+            );
+            return redirect('topics/' . $id, $content)->with('error' , 'Unauthorized Page');
+        }
         $topic->delete();
 
         return redirect('/')->with('success', 'Topic Deleted');
