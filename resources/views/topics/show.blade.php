@@ -41,9 +41,9 @@
 
     @if(count($topic->comments) >= 1)
         @foreach($topic->comments as $comment)
-            <p>{{$comment->commentBody}}</p>
-            <small>Posted on {{ $comment->created_at }} by {{ $comment->user['name'] }}</small><br>
-            <p>{{$comment->votes->sum('vote')}} points</p>
+            <p>{{$comment->commentBody}}
+            <small>Posted on {{ $comment->created_at }} by {{ $comment->user['name'] }} ({{ $comment->user->comments->votes->sum('vote') }})</small><br>
+                <small>{{$comment->votes->sum('vote')}} points</small><br>
             @if(!Auth::guest() and Auth::User()->id != $comment->user_id)
                 <table>
                     <tr>
@@ -65,6 +65,7 @@
                     </tr>
                 </table>
             @endif
+            </p>
         @endforeach
     @else
         <p>No replies posted</p>
