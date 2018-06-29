@@ -14,7 +14,7 @@ class TopicsController extends Controller
      * @return void
      */
     public function __construct() {
-        $this->middleware('auth', ['except' => 'index', 'show']);
+        $this->middleware('auth', ['except' => ['index', 'show']]);
     }
 
     /** Will be Homepage for the application
