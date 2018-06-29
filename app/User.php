@@ -38,4 +38,8 @@ class User extends Authenticatable
     public function votes() {
         return $this->hasMany('App\Vote');
     }
+
+    public function receivedVotes() {
+        return $this->hasManyThrough('App\Vote', 'App\Comment');
+    }
 }
