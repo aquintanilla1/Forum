@@ -18,6 +18,9 @@
                 @csrf
             </form>
         </li>
+        <li>
+            <a href="/changePassword">Change Password</a>
+        </li>
         <li><a href="/topics/create">Create a Topic</a></li>
     @endguest
 

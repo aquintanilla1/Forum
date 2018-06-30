@@ -19,6 +19,8 @@ Route::get('/signup', 'PagesController@signup');
 
 Route::get('/changePassword', 'PagesController@changePassword');
 
+Route::post('/changePassword', 'PagesController@updatePassword')->name('updatePassword');
+
 Route::resource('topics', 'TopicsController');
 
 Route::resource('comments', 'CommentsController')->only([
@@ -33,6 +35,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/logout', 'Auth\LoginController@logout')->name('logout' );
+Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 
 
