@@ -64,7 +64,12 @@ class TopicsController extends Controller
 
         $topic->save();
 
-        return redirect('/')->with('success', 'Topic Created!');
+        $content = array(
+            'title' => $this->title,
+            'topic' => $topic
+        );
+
+        return redirect('topics.show', $content)->with('success', 'Topic Created!');
 
     }
 
@@ -99,11 +104,8 @@ class TopicsController extends Controller
         );
 
         if (auth()->user()->id != $topic->user_id) {
-            return redirect('/')->with('error' , 'Unauthorized Page');
+            return redirect()->back()->with('error' , 'Unauthorized Page');
         }
-
-
-
         return view('topics.edit', $content);
 
     }
@@ -127,7 +129,12 @@ class TopicsController extends Controller
 
         $topic->save();
 
-        return redirect('/')->with('success', 'Topic Edited!');
+        $content = array(
+            'title' => $this->title,
+            'topic' => Topic::find($id)
+        );
+
+        return redirect('topics.show', $content)->with('success', 'Topic Edited!');
 
     }
 
@@ -141,7 +148,7 @@ class TopicsController extends Controller
         $topic = Topic::find($id);
 
         if (auth()->user()->id != $topic->user_id) {
-            return redirect('/')->with('error' , 'Unauthorized Page');
+            return redirect()->back()->with('error' , 'Unauthorized Page');
         }
         $topic->delete();
 
