@@ -69,7 +69,7 @@ class TopicsController extends Controller
             'topic' => $topic
         );
 
-        return redirect('topics.show', $content)->with('success', 'Topic Created!');
+        return view('topics.show', $content)->with('success', 'Topic Created!');
 
     }
 
@@ -134,7 +134,7 @@ class TopicsController extends Controller
             'topic' => Topic::find($id)
         );
 
-        return redirect('topics.show', $content)->with('success', 'Topic Edited!');
+        return view('topics.show', $content)->with('success', 'Topic Edited!');
 
     }
 
